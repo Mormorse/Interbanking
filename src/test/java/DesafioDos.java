@@ -31,7 +31,7 @@ public class DesafioDos {
        System.out.println(Precio + Laptop);
 
         driver.findElement(By.linkText("Add to cart")).click();
-        Thread.sleep(10000);
+        Thread.sleep(2000);
 
 
         driver.quit();
