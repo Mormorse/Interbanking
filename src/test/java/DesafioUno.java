@@ -1,9 +1,10 @@
 import utility.DriverFactory;
+import Utility.PropertiesFile;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
 public class DesafioUno {
-    private String url = "https://www.demoblaze.com/index.html";
+    private String url = PropertiesFile.getProperty("url");
     private WebDriver driver = DriverFactory.getDriver();
 
     @Test
