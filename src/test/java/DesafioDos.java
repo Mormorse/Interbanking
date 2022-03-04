@@ -26,9 +26,9 @@ public class DesafioDos {
         Thread.sleep(2000);
 
 
-       Precio = driver.findElement(By.cssSelector("h2.name")).getText();
-       Laptop = driver.findElement(By.cssSelector("h3.price-container")).getText();
-       System.out.println(Precio + Laptop);
+       Laptop = driver.findElement(By.cssSelector("h2.name")).getText();
+       Precio = driver.findElement(By.cssSelector("h3.price-container")).getText();
+       System.out.println(Laptop + " " + Precio);
 
         driver.findElement(By.linkText("Add to cart")).click();
         Thread.sleep(2000);
