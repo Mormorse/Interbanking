@@ -1,5 +1,6 @@
 import org.junit.Assert;
 import Utility.DriverFactory;
+import Utility.PropertiesFile;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -7,7 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class DesafioDos {
-    private String url = "https://www.demoblaze.com/index.html";
+    private String url = PropertiesFile.getProperty("url");
     private WebDriver driver = DriverFactory.getDriver();
 
 
@@ -15,7 +16,7 @@ public class DesafioDos {
     public void DesafioClaseDos() throws InterruptedException {
         driver.manage().window().maximize();
         driver.navigate().to(url);
-        String uno, dos;
+        String Precio, Laptop;
 
 
         driver.findElement(By.linkText("Laptops")).click();
@@ -25,9 +26,9 @@ public class DesafioDos {
         Thread.sleep(2000);
 
 
-       uno = driver.findElement(By.cssSelector("h2.name")).getText();
-       dos = driver.findElement(By.cssSelector("h3.price-container")).getText();
-       System.out.println(uno + dos);
+       Precio = driver.findElement(By.cssSelector("h2.name")).getText();
+       Laptop = driver.findElement(By.cssSelector("h3.price-container")).getText();
+       System.out.println(Precio + Laptop);
 
         driver.findElement(By.linkText("Add to cart")).click();
         Thread.sleep(10000);
