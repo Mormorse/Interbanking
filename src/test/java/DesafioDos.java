@@ -6,6 +6,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 
 public class DesafioDos {
     private String url = PropertiesFile.getProperty("url");
@@ -20,15 +23,15 @@ public class DesafioDos {
 
 
         driver.findElement(By.linkText("Laptops")).click();
-        Thread.sleep(2000);
 
-        driver.findElement(By.cssSelector("div#tbodyid>div:nth-child(1)>div>a")).click();
-        Thread.sleep(2000);
+        WebDriverWait wait = new WebDriverWait(driver, 5);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(),'Sony vaio i5')]")));
+        driver.findElement(By.xpath("//a[contains(text(),'Sony vaio i5')]")).click();
 
-
-       Laptop = driver.findElement(By.cssSelector("h2.name")).getText();
-       Precio = driver.findElement(By.cssSelector("h3.price-container")).getText();
-       System.out.println(Laptop + " " + Precio);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h2[normalize-space()='Sony vaio i5']")));
+        Laptop = driver.findElement(By.xpath("//h2[normalize-space()='Sony vaio i5']")).getText();
+        Precio = driver.findElement(By.xpath("//h3[@class='price-container']")).getText();
+        System.out.println(Laptop + " " + Precio);
 
         driver.findElement(By.linkText("Add to cart")).click();
         Thread.sleep(2000);
